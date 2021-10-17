@@ -1,4 +1,4 @@
-package com.github.saleco
+package com.github.saleco.basics
 
 // CONDITIONAL STRUCTURES
 
