@@ -1,5 +1,10 @@
 package com.github.saleco.basics
 
+import javax.net.ssl.TrustManager
+import javax.net.ssl.X509TrustManager
+import java.security.cert.CertificateException
+import java.security.cert.X509Certificate
+
 
 def c = {}
 println c.class.name
@@ -207,7 +212,7 @@ List people = [
 ]
 
 //finds first
-println people.find { person -> person.city == "Lisbon"}
+println people.find {  person -> person.city == "Lisbon"}
 
 //finds all
 println people.findAll { person -> person.city == "Lisbon"}
@@ -220,5 +225,17 @@ println people.every {person -> person.city == "Lisbon"}
 
 //group by property
 println people.groupBy {person -> person.city}
+
+println "-------------------------------------- COMBINATIONS -----------------------------"
+def nameParts = "Sallo Cohen".split(" ") as List
+Set namesToTry = [nameParts, nameParts, nameParts].combinations().findAll { a, b, d -> a != b && a != d && b != d} as Set
+Set perm = nameParts.permutations()
+
+nameParts.each {println it}
+println namesToTry
+println perm
+
+
+
 
 
